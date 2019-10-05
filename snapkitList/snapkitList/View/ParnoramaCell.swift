@@ -10,11 +10,14 @@ import UIKit
 
 class ParnoramaCell: UITableViewCell {
     
-    var roomTitle = ""
-    var rateText = ""
-    var addressText = ""
     var thumbnailImg = UIImageView()
     var roomTitleViews = RoomTitleView()
+    var rentInfoView = RentInfoView().then{
+        $0.isParnoramaView = true
+    }
+    var stayInfoView = StayInfoView().then{
+        $0.isParnoramaView = true
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,10 +32,7 @@ class ParnoramaCell: UITableViewCell {
     //set cell
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) { 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        thumbnailImg.roundCorners(corners: [.bottomRight], radius: 10)
-        roomTitleViews.titleText = roomTitle
          setUI()
-        layoutIfNeeded()
         self.backgroundColor = .white
     }
     
@@ -45,22 +45,45 @@ class ParnoramaCell: UITableViewCell {
         thumbnailImg =  UIImageView().then{
             self.addSubview($0)
             $0.snp.makeConstraints{(make) in
-                make.top.right.left.equalTo(0)
+                make.top.right.left.equalToSuperview()
                 make.height.equalTo(240)
             }
-//            $0.roundCorners(corners: [.bottomRight], radius: 0)
             $0.backgroundColor = .black
+            
+            //corner Radius
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 10
+            if #available(iOS 11.0, *) {
+                $0.layer.maskedCorners = [.layerMaxXMaxYCorner]
+            } else {
+                // Fallback on earlier versions
+            }
+            
         }
+        
+        //객실정보
         roomTitleViews = RoomTitleView().then{
-            $0.titleText = roomTitle
-            $0.rateText = rateText
-            $0.addressText = addressText
-            $0.setView()
             self.addSubview($0)
             $0.snp.makeConstraints { (make) in
                 make.top.equalTo(thumbnailImg.snp.bottom)
-                make.left.right.equalToSuperview()
+                make.right.equalToSuperview()
+                make.left.equalToSuperview().inset(10) 
             }
         }
+        
+        //대실 가격 정보
+        self.addSubview(rentInfoView)
+        rentInfoView.snp.makeConstraints{(make) in
+            make.top.equalTo(roomTitleViews.snp.bottom)
+            make.right.left.equalToSuperview()
+        }
+        
+        //숙박 가격 정보
+        self.addSubview(stayInfoView)
+        stayInfoView.snp.makeConstraints{(make) in
+            make.top.equalTo(rentInfoView.snp.bottom)
+            make.right.left.bottom.equalToSuperview()
+        }
     }
+     
 }

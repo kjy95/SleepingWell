@@ -15,25 +15,32 @@ import Then
  */
 
 class RoomTitleView: UIView {
-    var title = UILabel()
-    var address = UILabel()
-    var rate = UILabel()
     
-    var titleText = "roomTitle"
-    var addressText = "roomTitle"
-    var rateText = "rate"
+    var title = UILabel().then{
+        $0.font = UIFont.boldSystemFont(ofSize: 20.0)
+    }
+    var address = UILabel().then{
+        $0.textColor = .darkGray
+    }
+    var rate = UILabel().then{
+        $0.textColor = .darkGray
+    }
+    var star = UIView().then{
+        $0.backgroundColor = .purple
+    }
+    var reviewCount = UILabel().then{
+        $0.textColor = .lightGray
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(title)
         self.addSubview(address)
         self.addSubview(rate)
-        title.text = titleText
+        self.addSubview(star)
+        self.addSubview(reviewCount) 
         
-
-        title.backgroundColor = .green
-        address.backgroundColor = .red
-        rate.backgroundColor = .blue
+        setView()
     }
     
     required init?(coder: NSCoder) {
@@ -44,21 +51,32 @@ class RoomTitleView: UIView {
            
         title.snp.makeConstraints{(make) in
                    make.top.equalToSuperview()
-                   make.left.equalToSuperview()
-                   make.height.equalTo(30)
+            make.left.right.equalToSuperview()
            }
            
         address.snp.makeConstraints{(make) in
             make.top.equalTo(title.snp.bottom)
+            make.bottom.equalToSuperview()
                make.left.equalToSuperview()
-               make.height.equalTo(20)
            }
-        
+        star.snp.makeConstraints{(make) in
+            make.top.equalTo(title.snp.bottom)
+            make.bottom.equalToSuperview()
+               make.left.equalTo(address.snp.right)
+            make.height.equalTo(address.snp.height)
+            make.width.equalTo(star.snp.height)
+        }
        rate.snp.makeConstraints{(make) in
                 make.top.equalTo(title.snp.bottom)
-                   make.left.equalTo(address)
-                   make.height.equalTo(20) 
+                make.bottom.equalToSuperview() 
+            make.left.equalTo(star.snp.right)
                }
+
+        reviewCount.snp.makeConstraints{(make) in
+            make.top.equalTo(title.snp.bottom)
+            make.bottom.equalToSuperview()
+            make.left.equalTo(rate.snp.right)
+        }
        }
     
 }
