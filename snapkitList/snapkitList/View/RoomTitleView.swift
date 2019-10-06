@@ -15,6 +15,17 @@ import Then
  */
 
 class RoomTitleView: UIView {
+    var isParnoramaView = Bool(){
+        willSet(newVal){
+            //set ui
+            if newVal{
+                setParnoramaLabel()
+            }else{
+                print("asf",newVal)
+                setThumbLabel()
+            }
+        }
+    }
     
     var title = UILabel().then{
         $0.font = UIFont.boldSystemFont(ofSize: 20.0)
@@ -39,16 +50,15 @@ class RoomTitleView: UIView {
         self.addSubview(rate)
         self.addSubview(star)
         self.addSubview(reviewCount) 
-        
-        setView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setView(){
-           
+    func setParnoramaLabel(){
+        removeAllLabelConstraints()
+        
         title.snp.makeConstraints{(make) in
                    make.top.equalToSuperview()
             make.left.right.equalToSuperview()
@@ -77,6 +87,45 @@ class RoomTitleView: UIView {
             make.bottom.equalToSuperview()
             make.left.equalTo(rate.snp.right)
         }
-       }
+       
+    }
     
+    func setThumbLabel(){
+        removeAllLabelConstraints()
+        
+     title.snp.makeConstraints{(make) in
+                make.top.equalToSuperview()
+        make.left.right.equalToSuperview()
+        }
+        
+     address.snp.makeConstraints{(make) in
+         make.top.equalTo(title.snp.bottom)
+            make.left.equalToSuperview()
+        }
+     star.snp.makeConstraints{(make) in
+         make.top.equalTo(address.snp.bottom)
+        make.bottom.left.equalToSuperview()
+         make.height.equalTo(address.snp.height)
+         make.width.equalTo(star.snp.height)
+     }
+    rate.snp.makeConstraints{(make) in
+             make.top.equalTo(address.snp.bottom)
+             make.bottom.equalToSuperview()
+         make.left.equalTo(star.snp.right)
+            }
+
+     reviewCount.snp.makeConstraints{(make) in
+         make.top.equalTo(address.snp.bottom)
+         make.bottom.equalToSuperview()
+         make.left.equalTo(rate.snp.right)
+     }
+    }
+    
+    func removeAllLabelConstraints(){
+        title.snp.removeConstraints()
+        address.snp.removeConstraints()
+        star.snp.removeConstraints()
+        rate.snp.removeConstraints()
+        reviewCount.snp.removeConstraints()
+    }
 }

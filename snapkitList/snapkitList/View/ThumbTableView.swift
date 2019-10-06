@@ -1,17 +1,16 @@
 //
-//  ParnoramaTableView.swift
+//  ThumbTableView.swift
 //  snapkitList
 //
-//  Created by Tori on 04/10/2019.
+//  Created by 김지영 on 05/10/2019.
 //  Copyright © 2019 Tori. All rights reserved.
 //
 
 import UIKit
-import Kingfisher
 
-class ParnoramaTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+class ThumbTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
-    let cellIdentifiler = "ParnoramaCell"
+    let cellIdentifiler = "ThumbCell"
     var roomData = RoomData()
     // MARK: TableView Register
     func setTableRegister() {
@@ -19,7 +18,7 @@ class ParnoramaTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
         self.delegate = self
         self.dataSource = self
         
-        self.register(ParnoramaCell.self, forCellReuseIdentifier: cellIdentifiler)
+        self.register(ThumbCell.self, forCellReuseIdentifier: cellIdentifiler)
     }
 
     // MARK: TableView delegate
@@ -33,7 +32,7 @@ class ParnoramaTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ParnoramaCell", for: indexPath) as! ParnoramaCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ThumbCell", for: indexPath) as! ThumbCell
         
         cell.roomTitleViews.title.text = "엠블런스"
         cell.roomTitleViews.address.text = "용인시"
@@ -54,7 +53,7 @@ class ParnoramaTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
         /*cell.roomTitleViews.title.text = roomData.roomDatas[indexPath.row].title ?? ""
         cell.addressText = roomData.roomDatas[indexPath.row].listAddress ?? ""
         cell.rateText = roomData.roomDatas[indexPath.row].rate ?? ""
-        //thumbnail 
+        //thumbnail
         let url = URL(string: roomData.roomDatas[indexPath.row].thumbnail ?? "")
         cell.thumbnailImg.kf.setImage(with: url)*/
         return cell

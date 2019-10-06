@@ -9,12 +9,34 @@
 import UIKit
 
 class ThumbListVC: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad() 
-        // Do any additional setup after loading the view.
+    
+    var roomData = RoomData()
+    let thumbTableView = ThumbTableView(frame: .zero, style: .plain).then {
+        $0.backgroundColor = .gray
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+           self.thumbTableView.setTableRegister()
+           self.view.addSubview(self.thumbTableView)
+           self.thumbTableView.snp.makeConstraints{(make) in
+               make.edges.equalToSuperview()
+           }
+        //get room data and give the data to tableview
+        /*roomData.getDataFromUrl{ (roomDatas) in
+            self.roomData.roomDatas = roomDatas
+            self.parnoramaTableView.setTableRegister()
+            self.view.addSubview(self.parnoramaTableView)
+            self.parnoramaTableView.snp.makeConstraints{(make) in
+                make.edges.equalToSuperview()
+            }
+            self.parnoramaTableView.roomData = self.roomData
+        }*/
+        // Do any additional setup after loading the view.
+    }
+     
+    override func viewWillAppear(_ animated: Bool) {
+    }
 
     /*
     // MARK: - Navigation

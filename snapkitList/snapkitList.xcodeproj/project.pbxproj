@@ -27,6 +27,8 @@
 		BFF0F5DA2348588100AEB56E /* RentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0F5D92348588100AEB56E /* RentInfoView.swift */; };
 		BFF0F5DC234858AC00AEB56E /* StayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0F5DB234858AC00AEB56E /* StayInfoView.swift */; };
 		BFF0F5DE2348593E00AEB56E /* PlaceInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0F5DD2348593E00AEB56E /* PlaceInfoView.swift */; };
+		BFF0F5E02348DB8E00AEB56E /* ThumbTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0F5DF2348DB8E00AEB56E /* ThumbTableView.swift */; };
+		BFF0F5E22349CBBB00AEB56E /* ThumbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0F5E12349CBBB00AEB56E /* ThumbCell.swift */; };
 		FD1BBFFE6E66669663C9C768 /* Pods_snapkitList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED13AE6D7A2632EA814008DF /* Pods_snapkitList.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		BFF0F5D92348588100AEB56E /* RentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentInfoView.swift; sourceTree = "<group>"; };
 		BFF0F5DB234858AC00AEB56E /* StayInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StayInfoView.swift; sourceTree = "<group>"; };
 		BFF0F5DD2348593E00AEB56E /* PlaceInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfoView.swift; sourceTree = "<group>"; };
+		BFF0F5DF2348DB8E00AEB56E /* ThumbTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbTableView.swift; sourceTree = "<group>"; };
+		BFF0F5E12349CBBB00AEB56E /* ThumbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbCell.swift; sourceTree = "<group>"; };
 		D0600C1E55C3255762596584 /* Pods_snapkitListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_snapkitListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED13AE6D7A2632EA814008DF /* Pods_snapkitList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_snapkitList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CDBE71D5659327774E31CE /* Pods-snapkitListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snapkitListTests.debug.xcconfig"; path = "Target Support Files/Pods-snapkitListTests/Pods-snapkitListTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 			children = (
 				9240B3B72346FD380033E31A /* ParnoramaCell.swift */,
 				9240B3B02346D4CA0033E31A /* ParnoramaTableView.swift */,
+				BFF0F5DF2348DB8E00AEB56E /* ThumbTableView.swift */,
+				BFF0F5E12349CBBB00AEB56E /* ThumbCell.swift */,
 				9240B3B92346FEFE0033E31A /* RoomTitleView.swift */,
 				BFF0F5D92348588100AEB56E /* RentInfoView.swift */,
 				BFF0F5DB234858AC00AEB56E /* StayInfoView.swift */,
@@ -473,7 +479,9 @@
 				BFF0F5DC234858AC00AEB56E /* StayInfoView.swift in Sources */,
 				9240B37F2346CBC70033E31A /* ViewController.swift in Sources */,
 				9240B3B32346D7120033E31A /* RoomData.swift in Sources */,
+				BFF0F5E02348DB8E00AEB56E /* ThumbTableView.swift in Sources */,
 				9206B5982347252E00F3DA88 /* RoundCornersView.swift in Sources */,
+				BFF0F5E22349CBBB00AEB56E /* ThumbCell.swift in Sources */,
 				BFF0F5DE2348593E00AEB56E /* PlaceInfoView.swift in Sources */,
 				9240B37B2346CBC70033E31A /* AppDelegate.swift in Sources */,
 				9240B3AF2346D0A20033E31A /* ThumbListVC.swift in Sources */,
