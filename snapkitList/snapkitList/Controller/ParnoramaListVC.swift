@@ -17,13 +17,13 @@ class ParnoramaListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-           self.parnoramaTableView.setTableRegister()
+           /* self.parnoramaTableView.setTableRegister()
            self.view.addSubview(self.parnoramaTableView)
            self.parnoramaTableView.snp.makeConstraints{(make) in
                make.edges.equalToSuperview()
-           } 
+           } */
         //get room data and give the data to tableview
-        /*roomData.getDataFromUrl{ (roomDatas) in
+       roomData.getDataFromUrl{ (roomDatas) in
             self.roomData.roomDatas = roomDatas
             self.parnoramaTableView.setTableRegister()
             self.view.addSubview(self.parnoramaTableView)
@@ -31,7 +31,7 @@ class ParnoramaListVC: UIViewController {
                 make.edges.equalToSuperview()
             }
             self.parnoramaTableView.roomData = self.roomData 
-        }*/
+        }
         // Do any additional setup after loading the view.
     }
      

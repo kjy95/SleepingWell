@@ -52,9 +52,10 @@ class ThumbCell: UITableViewCell {
         //photo
         thumbnailImg =  UIImageView().then{
             self.addSubview($0)
+            self.contentMode = .scaleAspectFit
             $0.snp.makeConstraints{(make) in
                 make.top.left.equalToSuperview().inset(infoInset)
-                make.height.equalTo(200).priority(250)
+                make.height.equalTo(200).priority(750)
                 make.width.equalTo(170)
             }
             $0.backgroundColor = .black

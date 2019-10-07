@@ -8,10 +8,13 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
 /**
  숙소 정보
  */
+ 
+
 class RoomData{
     //data form
     var roomDatas : [RoomData] = []
@@ -22,9 +25,11 @@ class RoomData{
     var rate: String?//평점
     var reviewCount: String? //리뷰갯수
     var thumbnail: String?
-    var rentInfo: [String:Any] = [:]//대실정보 = strikePrice(원가, strike), listPrice(할인가), badgeInfo(뱃지정보) = title(뱃지타이틀)
-    var stayInfo: [String:Any] = [:]//대실정보 = strikePrice(원가, strike), listPrice(할인가), badgeInfo(뱃지정보) = title(뱃지타이틀)
-    var placeInfo: [String:Any] = [:]//하단이벤트 정보 = promotion(이벤트명)
+    var rentInfo: [String:AnyObject] = [:]//대실정보 = strikePrice(원가, strike), listPrice(할인가), badgeInfo(뱃지정보) = title(뱃지타이틀)
+    var stayInfo:  [String:AnyObject] = [:]//대실정보 = strikePrice(원가, strike), listPrice(할인가), badgeInfo(뱃지정보) = title(뱃지타이틀)
+    var placeInfo:  [String:AnyObject] = [:]//하단이벤트 정보 = promotion(이벤트명)
+      
+    
     
     func getDataFromUrl(_ complete: @escaping ([RoomData]) -> ()){
         //url
@@ -71,18 +76,19 @@ class RoomData{
                 roomData.reviewCount = reviewCount as? String
             }
             if let rentInfo = temp?["rentInfo"]{
-                roomData.rentInfo = rentInfo as? [String:Any] ?? [:]
+                roomData.rentInfo = rentInfo as? [String:AnyObject] ?? [:]
             }
             if let stayInfo = temp?["stayInfo"]{
-                roomData.stayInfo = stayInfo as? [String:Any] ?? [:]
+                roomData.stayInfo = stayInfo as? [String:AnyObject] ?? [:]
             }
             if let placeInfo = temp?["placeInfo"]{
-                roomData.placeInfo = placeInfo as? [String:Any] ?? [:]
+                roomData.placeInfo = placeInfo as? [String:AnyObject] ?? [:]
             }
             if let thumbnail = temp?["thumbnail"]{
                 roomData.thumbnail = "http://image.dev.abouthere.kr\(thumbnail as! String)"
             }
-            print(roomData.title)
+            print(type(of:  temp?["rentInfo"]))
+            print( roomData.rentInfo["listPrice"])
             roomDatas.append(roomData)
         }
     }

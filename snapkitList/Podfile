@@ -6,6 +6,7 @@ pod 'Alamofire'
 pod 'SnapKit'
 pod 'Then'
 pod 'Kingfisher'
+pod 'ObjectMapper'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 

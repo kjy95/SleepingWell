@@ -16,22 +16,17 @@ class ThumbListVC: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-           self.thumbTableView.setTableRegister()
-           self.view.addSubview(self.thumbTableView)
-           self.thumbTableView.snp.makeConstraints{(make) in
-               make.edges.equalToSuperview()
-           }
+        super.viewDidLoad() 
         //get room data and give the data to tableview
-        /*roomData.getDataFromUrl{ (roomDatas) in
+        roomData.getDataFromUrl{ (roomDatas) in
             self.roomData.roomDatas = roomDatas
-            self.parnoramaTableView.setTableRegister()
-            self.view.addSubview(self.parnoramaTableView)
-            self.parnoramaTableView.snp.makeConstraints{(make) in
+            self.thumbTableView.setTableRegister()
+            self.view.addSubview(self.thumbTableView)
+            self.thumbTableView.snp.makeConstraints{(make) in
                 make.edges.equalToSuperview()
             }
-            self.parnoramaTableView.roomData = self.roomData
-        }*/
+            self.thumbTableView.roomData = self.roomData
+        }
         // Do any additional setup after loading the view.
     }
      
